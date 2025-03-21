@@ -1,0 +1,22 @@
+name: napari-fits
+display_name: FITS file reader
+# use 'hidden' to remove plugin from napari hub search results
+visibility: public
+# see https://napari.org/stable/plugins/technical_references/manifest.html#fields for valid categories
+categories: ["Annotation", "Segmentation", "Acquisition"]
+contributions:
+  commands:
+    - id: napari-fits.get_reader
+      python_name: napari_fits._reader:napari_get_reader
+      title: Open data with FITS file reader
+    - id: napari-fits.make_sample_data
+      python_name: napari_fits._sample_data:make_sample_data
+      title: Load sample data from FITS file reader
+  readers:
+    - command: napari-fits.get_reader
+      accepts_directories: false
+      filename_patterns: ['*.npy']
+  sample_data:
+    - command: napari-fits.make_sample_data
+      display_name: FITS file reader
+      key: unique_id.1
